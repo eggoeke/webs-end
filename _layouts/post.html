@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<head>
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ 'assets/css/post.css' | relative_url }}" >
+</head>
+<article>
+    <div class="banner-container">
+      <div class="banner-overlay"></div>
+      <div style="background-image: url('{{ page.featured_image | relative_url }}');" alt="{{ page.title }}" class="banner-image"></div>
+    </div>
+      <h1 class="white page-title post-title">{{ page.title }}</h1>
+  <p class="page-date post-date">   {{ page.date | date: "%B %d, %Y" }}</p>
+  <hr>
+  <div class="post">
+    {{ content }}
+    <div style="text-align: left">
+  </div>
+</article>

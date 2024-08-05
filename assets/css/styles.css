@@ -1,0 +1,566 @@
+@font-face {
+    font-family: 'MorningRainbow-WyL8n';
+    src: url('../fonts/MorningRainbow-WyL8n.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+}
+
+.sidebar {
+  background-color: #f0f0f0;
+  position: fixed;
+  height: 110%;
+  margin-top: -20px;
+  margin-left: -100px;
+  max-width: 300px; /* Adjust this width as needed */
+  min-width: 160px;
+  padding: 20px;
+  z-index: 111;
+}
+
+main {
+  margin-left: 300px; /* Same as sidebar width */
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* Center the contents horizontally */
+}
+
+#logo-link {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+
+.fire-container {
+  font-size: 18rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 100%;
+  position: relative;
+  background-image: url('../images/www.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center; /* Center text horizontally if needed */
+  z-index: 1;
+  transition: background-image 0.3s ease;
+}
+
+#logo-link:hover .fire-container {
+  background-image: url('../images/www-red.png');
+}
+
+#logo-svg {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease, fill 0.3s ease, text-shadow 0.3s ease, filter 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+#logo-svg text {
+  fill: #000;
+  stroke: rgb(255 165 0 / 100%);
+  stroke-width: 8px;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: trace 5s linear infinite;
+  font-family: 'MorningRainbow-WyL8n', 'Comic Sans MS', cursive, sans-serif;
+  font-weight: bold;
+}
+
+#logo-link:hover #logo-svg {
+  transform: scale(1.1);
+  fill: #000;
+  text-shadow: 0 0 20px rgb(255 69 0 / 80%), 0 0 40px rgb(255 140 0 / 70%);
+  filter: drop-shadow(0 0 20px rgb(255 69 0 / 20%)) drop-shadow(0 0 40px rgb(255 140 0 / 20%));
+}
+
+#logo-link:hover #logo-svg text {
+  fill: #000; /* Change text color on hover */
+}
+
+.sidebar .description {
+  margin-top: -20px;
+  text-align: center;
+  font-style: italic;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar nav li {
+  margin-bottom: 10px;
+  flex: 1;
+}
+
+.sidebar nav a {
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+footer {
+  text-align: center;
+  background-color: #f0f0f0;
+  border-top: 1px solid #ddd;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+@keyframes trace {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.fire-links-container {
+  display: flex;
+  gap: 20px; /* Adds spacing between links */
+  justify-content: center; /* Center the links horizontally */
+}
+
+.fire-link a {
+  
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  font-size: 18px;
+  color: #000 !important; /* Black text */
+  position: relative;
+  padding: 10px 20px;
+  text-align: center;
+  background-color: transparent !important; /* Transparent background */
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; /* Added transform transition */
+}
+
+.fire-link a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: linear-gradient(45deg, #ff4500, #ffa500);
+  background-size: 300% 300%;
+  animation: gradientShift 10s linear infinite;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.fire-link a:hover::after {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.fire-link a:hover {
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(45deg, #ff4500, #ffa500);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 10s linear infinite;
+  transform: scale(1.1); /* Scale effect */
+}
+
+@keyframes gradientShift {
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Adding particles using multiple pseudo-elements */
+.particle {
+  position: absolute;
+  bottom: 0;
+  width: 5px;
+  height: 5px;
+  background-color: orange;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: rise 1.5s infinite;
+  z-index: 1; /* Ensure particles are behind the SVG */
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateY(-20px) scale(1.5);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-40px) scale(1);
+    opacity: 0.7;
+  }
+}
+
+.fire-element {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: orange;
+  border-radius: 50%;
+  animation: fire-animation 3s linear infinite;
+  z-index: 1; /* Ensure particles are behind the SVG */
+}
+
+@keyframes fire-animation {
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.3) translateY(-300px);
+    opacity: 0;
+  }
+}
+
+.post-separator {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #ccc;
+}
+
+.container a {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding: 0 10px;
+  color: #fff;
+  background: linear-gradient(45deg, #ffa500, #ff581d);
+  background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: elame-animation 1s linear infinite;
+}
+
+@keyframes flame-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Fix for line height issue with background-clip: text on Safari */
+@supports (-webkit-background-clip: text) {
+  .flame-link {
+    line-height: 1;
+
+    span {
+      line-height: 1.6;
+    }
+  }
+}
+
+/* Styles for the search bar */
+.search-bar {
+  display: flex;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0 10px;
+  font-size: 16px;
+  color: #000;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #666;
+}
+
+.search-submit {
+  width: 40px;
+  height: 40px;
+  background-image: url('../images/search.svg'); /* Replace with your search icon */
+  background-size: 60%; /* Adjust this value to fit the icon size */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-submit:hover {
+  background-color: rgb(0 0 0 / 10%);
+}
+
+.search-results {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: calc(100% - 40px);
+  max-height: 200px; /* Adjusted maximum height for the dropdown */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.search-results a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2em;
+  padding: 10px; /* Add padding around each result */
+  transition: color 0.3s ease;
+  display: block; /* Ensure block layout for full width */
+}
+
+.search-results .result-title {
+  font-weight: bold;
+  display: inline-block; /* Keep the title on the same line */
+}
+
+.search-results .result-description {
+  display: block; /* Make description wrap under the title */
+  font-style: italic;
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 2px; /* Small margin for spacing */
+}
+
+.search-results a:hover {
+  background: linear-gradient(45deg, #ffa500, #ff581d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flame-animation 1s linear infinite;
+}
+
+.search-results span:hover {
+  color: #fff;
+  background: linear-gradient(45deg, #ffa500, #ff581d);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flame-animation 1s linear infinite;
+}
+
+/* Base styling for the custom audio player container */
+/* Base styling for the custom audio player container */
+.audio-player-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+/* Styling for the image */
+.audio-image {
+  max-width: 150px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom audio player styling */
+.custom-audio-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Controls styling */
+.controls {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Control buttons */
+.control-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  position: relative;
+  font-size: 1.5em; /* Adjust icon size */
+  color: #333;
+}
+
+.control-button i {
+  pointer-events: none; /* Prevent clicks on the icon itself */
+}
+
+/* Style adjustments on hover */
+.control-button:hover {
+  color: #fff;
+  background: linear-gradient(45deg, #ffa500, #ff581d);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flame-animation 1s linear infinite;
+}
+
+/* Control buttons base styling */
+
+/* Control buttons base styling */
+.control-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  position: relative;
+  font-size: 1.5em; /* Adjust icon size */
+  color: #333;
+}
+
+.control-button i {
+  pointer-events: none; /* Prevent clicks on the icon itself */
+}
+
+/* Style adjustments on hover */
+.control-button:hover {
+  color: #fff;
+  background: linear-gradient(45deg, #ffa500, #ff581d);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flame-animation 1s linear infinite;
+}
+/* For WebKit browsers (Chrome, Safari) */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px; /* Adjust the height as needed */
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+  overflow: hidden;
+}
+
+/* Track */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ffa500, #ff581d);
+  border-radius: 5px;
+}
+
+/* Thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 2px solid #ffa500; /* Thumb border color */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* For Mozilla browsers (Firefox) */
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ffa500, #ff581d);
+  border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 2px solid #ffa500; /* Thumb border color */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* For Internet Explorer */
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: transparent; /* Remove default background */
+  border-color: transparent; /* Remove default border */
+  color: transparent; /* Remove default text */
+}
+
+input[type="range"]::-ms-fill-lower {
+  background: linear-gradient(45deg, #ffa500, #ff581d);
+  border-radius: 5px;
+}
+
+input[type="range"]::-ms-fill-upper {
+  background: #ddd;
+  border-radius: 5px;
+}
+
+input[type="range"]::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 2px solid #ffa500; /* Thumb border color */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}/* Seek bar styling */
+#seek-bar {
+  flex: 3; /* This gives the seek bar 3 parts of the space */
+  margin: 0 10px;
+  /* Custom styles for the seek bar */
+}
+
+/* Volume bar styling */
+#volume-bar {
+  flex: 1; /* This gives the volume bar 1 part of the space */
+  /* Custom styles for the volume bar */
+}

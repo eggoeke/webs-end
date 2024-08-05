@@ -1,0 +1,45 @@
+---
+layout: default
+title: Search
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
+</head>
+<body>
+  <div class="container">
+    {% capture url_path %}{{site.url}}{{page.url}}{% endcapture %}
+    {% assign query = page.url | split: 'query=' | last | url_decode | strip %}
+    {% if query and query != "" %}
+      <h1>Search Results for "{{ site.search }}"</h1>
+      <section class="blog-posts">
+        {% for post in site.posts %}
+          {% assign post_content = post.content | downcase %}
+          {% assign post_title = post.title | downcase %}
+          {% if post_content contains query or post_title contains query %}
+          <a href="{{ post.url | relative_url }}" class="post-link">
+            <div class="post-wrapper">
+              <div class="post">
+                {% if post.featured_image %}
+                  <div class="featured-image" style="background-image: url('{{ site.baseurl }}/{{ post.featured_image }}')"></div>
+                {% endif %}
+                <h2>{{ post.title }}</h2>
+                <p class="post-excerpt">{{ post.excerpt }}</p>
+                <div class="post-details">
+                  <p>Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <div class="divider"></div>
+          {% endif %}
+        {% endfor %}
+      </section>
+    {% else %}
+      <h1>No Search Query Provided</h1>
+    {% endif %}
+  </div>
+</body>
+</html>
