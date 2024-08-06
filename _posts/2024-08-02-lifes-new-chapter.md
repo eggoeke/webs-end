@@ -27,21 +27,7 @@ It means I've gone through several difficult-to-navigate transitions this year. 
 I've moved across the country to <b>Beaver Island</b>, a small island in Lake Michigan. I've been here for about a month now, and I have to say <b>it is a healing place</b>. I have met so many wonderful people from all walks of life.
 
 <h2><b>WVBI</b></h2>
-I've started playing music on the radio. I do <b>Top 10 Plus 5</b> on <b> WVBI</b>, <i>The Voice of Beaver Island</i>, so you're likely to hear me if you tune into 100.1 FM on Beaver Island on Wednesdays at <i>7:00 PM EST</i> or Saturdays at <i>10:00 AM EST</i>. Here's my North Carolina-themed playlist from this upcoming week:
-<div class="audio-player-container">
-  <img src="{{ site.baseurl }}/assets/images/WVBI.png" alt="Descriptive text" class="audio-image">
-  <div class="custom-audio-player">
-    <audio id="audio-player" src="{{ site.baseurl }}/assets/audio/carolinattpf.wav"></audio>
-    <div class="controls">
-      <button id="play-pause" class="control-button"><i class="fas fa-play"></i></button>
-      <input type="range" id="seek-bar" value="0">
-      <span id="current-time">0:00</span> / <span id="duration">0:00</span>
-      <button id="mute-toggle" class="control-button"><i class="fas fa-volume-up"></i></button>
-      <input type="range" id="volume-bar" value="1" max="1" step="0.01">
-    </div>
-  </div>
-</div>
-<br>
+I've started playing music on the radio. I do <b>Top 10 Plus 5</b> on <b> WVBI</b>, <i>The Voice of Beaver Island</i>, so you're likely to hear me if you tune into 100.1 FM on Beaver Island on Wednesdays at <i>7:00 PM EST</i> or Saturdays at <i>10:00 AM EST</i>. 
 
 <h2><b>Reading and Creative Writing</b></h2>
 I've been writing a lot of creative pieces lately. I've been working on a book, but I've also been writing short stories and poetry. It's cathartic to select words and put them into sentences like stringing beads into strands, and strands into jewelry. The process of seeing parts combining to become something greater than their sum gives me hope.
